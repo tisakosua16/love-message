@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset Love Message</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff6b6b, #ffc3a0, #ffafbd);
+            font-family: 'Dancing Script', cursive;
+            overflow: hidden;
+            position: relative;
+        }
+        .message {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            animation: float 6s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 36px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin: 0;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 24px;
+            color: white;
+            margin: 0;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: floatHeart var(--duration) ease-in-out infinite;
+            opacity: 0.8;
+            z-index: 0;
+        }
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) scale(0); }
+            100% { transform: translateY(-100px) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>My Heart Beats for You</h1>
+        <p>❤️ Forever Yours, Akosua</p>
+    </div>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
